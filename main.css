@@ -77,3 +77,26 @@ footer .selecionada {
   background-color: #fffbe6;
   color: #000;
 }
+
+header {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  top: 20px;
+  right: 20px;
+  height: 100px;
+  width: 180px;
+  background: #975723;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  z-index: 10;
+}
+
+header span {
+  display: flex;
+  align-items: center;
+}
