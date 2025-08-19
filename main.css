@@ -11,3 +11,21 @@ body {
   height: 100vh;
   background-color: #eee;
 }
+
+.canteiro {
+  width: 600px;
+  height: 600px;
+  border: 1px solid #000;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+
+}
+
+.canteiro div {
+  background-color: #fff;
+  border: 1px solid #783905;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
