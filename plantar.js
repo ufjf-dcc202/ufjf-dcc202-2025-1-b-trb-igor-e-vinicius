@@ -1,17 +1,19 @@
 let sementeSelecionada = null;
 
 const sementes = Array.from(document.querySelectorAll('footer > button')).filter(button => {
-  const texto = button.querySelector('span')?.textContent?.toLowerCase();
-  return texto === 'batata' || texto === 'abóbora' || texto === 'tomate';
+  const id = button.id
+  return id === 'batata' || id === 'abobora' || id === 'tomate';
 });
 
 sementes.forEach(button => {
   button.addEventListener('click', () => {
-    sementeSelecionada = button.querySelector('span').textContent.toLowerCase();
+    sementeSelecionada = button.id;
     sementes.forEach(d => d.classList.remove('selecionada'));
     button.classList.add('selecionada');
   });
 });
+
+export const plantacoes = []
 
 export function plantarSemente(areaEl) {
   if (!sementeSelecionada) return;
@@ -20,18 +22,26 @@ export function plantarSemente(areaEl) {
   let imgPath = '';
   switch (sementeSelecionada) {
     case 'batata':
-      imgPath = './assets/Potato/2 - Potato Sprout.png';
+      imgPath = './assets/batata/batata-pequena.png';
       break;
-    case 'abóbora':
-      imgPath = './assets/Pumpkin/2 - Pumpkin Sprout.png';
+    case 'abobora':
+      imgPath = './assets/abobora/abobora-pequena.png';
       break;
     case 'tomate':
-      imgPath = './assets/Tomato/2 - Tomato Sprout.png';
+      imgPath = './assets/tomate/tomate-pequeno.png';
       break;
   }
 
   areaEl.style.backgroundImage = `url('${imgPath}')`;
   areaEl.id = `semente-${sementeSelecionada}`;
+  plantacoes.push({
+    el: areaEl,
+    idade: 0,
+    vida: 3,
+    regado: false,
+    tipo: sementeSelecionada,
+    viva: true
+  });
 }
 
 document.querySelectorAll('.canteiro button').forEach(areaEl => {
