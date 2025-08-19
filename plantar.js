@@ -1,15 +1,15 @@
 let sementeSelecionada = null;
 
-const sementes = Array.from(document.querySelectorAll('footer > div')).filter(div => {
-  const texto = div.querySelector('span')?.textContent?.toLowerCase();
+const sementes = Array.from(document.querySelectorAll('footer > button')).filter(button => {
+  const texto = button.querySelector('span')?.textContent?.toLowerCase();
   return texto === 'batata' || texto === 'abóbora' || texto === 'tomate';
 });
 
-sementes.forEach(div => {
-  div.addEventListener('click', () => {
-    sementeSelecionada = div.querySelector('span').textContent.toLowerCase();
+sementes.forEach(button => {
+  button.addEventListener('click', () => {
+    sementeSelecionada = button.querySelector('span').textContent.toLowerCase();
     sementes.forEach(d => d.classList.remove('selecionada'));
-    div.classList.add('selecionada');
+    button.classList.add('selecionada');
   });
 });
 
@@ -34,7 +34,7 @@ export function plantarSemente(areaEl) {
   areaEl.id = `semente-${sementeSelecionada}`;
 }
 
-document.querySelectorAll('.canteiro div').forEach(areaEl => {
+document.querySelectorAll('.canteiro button').forEach(areaEl => {
   areaEl.addEventListener('click', () => {
     plantarSemente(areaEl);
   });
