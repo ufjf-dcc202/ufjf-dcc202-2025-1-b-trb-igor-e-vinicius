@@ -1,3 +1,5 @@
+import { limparCanteiro } from './limpar.js';
+
 const CANTEIRO_LARG = 12;
 const CANTEIRO_ALT = 12;
 
@@ -24,6 +26,7 @@ for (let i = 0; i < CANTEIRO_LARG; i++) {
     const idxCanteiroTipo = Math.floor(Math.random() * 3);
     areaEl.style.backgroundImage = `url('${canteiros_tipos[idxCanteiroTipo].solo}')`;
     areaEl.id = canteiros_tipos[idxCanteiroTipo].id;
+    areaEl.addEventListener('click', limparCanteiro);
     canteiroEl.appendChild(areaEl);
   }
 }
