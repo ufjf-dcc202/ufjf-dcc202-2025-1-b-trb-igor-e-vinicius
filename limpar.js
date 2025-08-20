@@ -8,7 +8,6 @@ export function limparCanteiro(e) {
     case 'grama':
       areaEl.style.backgroundImage = "url('./assets/floor/tile_m.png')";
       areaEl.id = 'terra';
-      areaEl.removeEventListener('click', limparCanteiro);
       areaEl.addEventListener('click', () => plantarSemente(areaEl));
       areaEl.addEventListener('click', () => regarPlanta(areaEl));
       break;
@@ -17,6 +16,10 @@ export function limparCanteiro(e) {
       areaEl.id = 'grama';
       break;
     case 'pedra':
+      areaEl.style.backgroundImage = "url('./assets/floor/tile_grama.png')";
+      areaEl.id = 'grama';
+      break;
+    case 'morto': 
       areaEl.style.backgroundImage = "url('./assets/floor/tile_grama.png')";
       areaEl.id = 'grama';
       break;
