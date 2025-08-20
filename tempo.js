@@ -1,11 +1,12 @@
 import { plantacoes } from "./plantar.js";
 
 const tempoBtn = document.getElementById('tempo');
-let tempo = 0;
+export let tempo = 0;
 
 tempoBtn.addEventListener('click', () => {
   tempo++;
   console.log('Dias: ', tempo);
+  atualizaTempo();
   plantacoes.forEach(plantacao => {
     plantacao.idade++;
     plantacao.vida--;
@@ -21,4 +22,9 @@ function mataPlantacao(plantacao) {
   areaEl.style.backgroundImage = `url('./assets/${plantacao.tipo}/${plantacao.tipo}-morto.png')`;
   areaEl.id = 'morto';
   plantacao.viva = false;
+}
+
+function atualizaTempo() {
+  const tempoEl = document.querySelector('header span:first-child');
+  tempoEl.textContent = `Dia: ${tempo}`;
 }
