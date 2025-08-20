@@ -1,4 +1,5 @@
 let sementeSelecionada = null;
+let regadorSelecionado = null;
 
 const sementes = Array.from(document.querySelectorAll('footer > button')).filter(button => {
   const id = button.id
@@ -10,7 +11,22 @@ sementes.forEach(button => {
     sementeSelecionada = button.id;
     sementes.forEach(d => d.classList.remove('selecionada'));
     button.classList.add('selecionada');
+    
+    regadorSelecionado = false;
+    regador.classList.remove('selecionada');
   });
+});
+
+const regador = document.getElementById('regador');
+regador.addEventListener('click', () => {
+  regadorSelecionado = !regadorSelecionado;
+  if (regadorSelecionado) {
+    regador.classList.add('selecionada');
+    sementeSelecionada = null;
+    sementes.forEach(d => d.classList.remove('selecionada'));
+  } else {
+    regador.classList.remove('selecionada');
+  }
 });
 
 export const plantacoes = []
@@ -38,14 +54,18 @@ export function plantarSemente(areaEl) {
     el: areaEl,
     idade: 0,
     vida: 3,
-    regado: false,
     tipo: sementeSelecionada,
     viva: true
   });
 }
 
-document.querySelectorAll('.canteiro button').forEach(areaEl => {
-  areaEl.addEventListener('click', () => {
-    plantarSemente(areaEl);
-  });
-});
+export function regarPlanta(areaEl) {
+  if (!areaEl.id.includes('semente') || !regadorSelecionado) return;
+
+  const plantacao = plantacoes.find(p => p.el === areaEl);
+  if (plantacao) {
+    plantacao.vida = 3;
+  }
+  console.log(plantacao);
+}
+
