@@ -6,7 +6,8 @@ export const plantasInfo = {
       './assets/batata/batata-media.png',
       './assets/batata/batata-grande.png'
     ],
-    preco: 3
+    preco: 3,
+    valorVenda: 5
   },
   'abobora': {
     tempoCrescimento: 3,
@@ -15,7 +16,8 @@ export const plantasInfo = {
       './assets/abobora/abobora-media.png',
       './assets/abobora/abobora-grande.png'
     ],
-    preco: 5
+    preco: 5,
+    valorVenda: 10
   },
   'tomate': {
     tempoCrescimento: 4,
@@ -24,6 +26,7 @@ export const plantasInfo = {
       './assets/tomate/tomate-medio.png',
       './assets/tomate/tomate-grande.png'
     ],
-    preco: 6
+    preco: 6,
+    valorVenda: 15
   }
 }

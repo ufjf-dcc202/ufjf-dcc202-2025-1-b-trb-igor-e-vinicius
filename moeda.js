@@ -17,6 +17,14 @@ export function compraSemente(tipo) {
   return false;
 }
 
+export function vendaPlanta(tipo) {
+  const info = plantasInfo[tipo];
+  if (!info) return;
+
+  moedas += info.valorVenda;
+  atualizaMoedas();
+}
+
 function atualizaMoedas() {
   moedasEl.innerHTML = moedas;
 }

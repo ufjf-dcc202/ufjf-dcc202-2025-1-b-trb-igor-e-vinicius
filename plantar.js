@@ -1,4 +1,4 @@
-import { compraSemente } from "./moeda.js";
+import { compraSemente, vendaPlanta } from "./moeda.js";
 
 let sementeSelecionada = null;
 let regadorSelecionado = null;
@@ -79,4 +79,21 @@ export function regarPlanta(areaEl) {
   if (plantacao) {
     plantacao.vida = 3;
   }
+}
+
+export function colherPlanta(areaEl) {
+  if(areaEl.id.includes('semente')) { 
+    const plantacao = plantacoes.find(p => p.el === areaEl);
+    if (plantacao && plantacao.viva && plantacao.fase === 2) {
+      vendaPlanta(plantacao.tipo);
+      plantacao.viva = false;
+      areaEl.style.backgroundImage = "url('./assets/floor/tile_grama.png')";
+      areaEl.id = 'grama';
+      const index = plantacoes.indexOf(plantacao);
+      if (index !== -1) {
+        plantacoes.splice(index, 1);
+      }
+    }
+  }
+  
 }
