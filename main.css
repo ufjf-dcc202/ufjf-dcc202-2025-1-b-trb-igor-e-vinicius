@@ -5,6 +5,10 @@
 }
 
 body {
+  background-image: url('./assets/Fundo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
