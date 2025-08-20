@@ -16,6 +16,15 @@ tempoBtn.addEventListener('click', () => {
     }
     crescimentoPlanta(plantacao);
   });
+
+  plantacoes.forEach(plantacao => {
+    if (!plantacao.viva) {
+      const index = plantacoes.indexOf(plantacao);
+      if (index !== -1) {
+        plantacoes.splice(index, 1);
+      }
+    }
+  });
 });
 
 function crescimentoPlanta(plantacao) {
@@ -34,10 +43,6 @@ function mataPlantacao(plantacao) {
   areaEl.style.backgroundImage = `url('./assets/${plantacao.tipo}/${plantacao.tipo}-morto.png')`;
   areaEl.id = 'morto';
   plantacao.viva = false;
-  const index = plantacoes.indexOf(plantacao);
-  if (index !== -1) {
-    plantacoes.splice(index, 1);
-  }
 }
 
 function atualizaTempo() {
