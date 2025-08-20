@@ -1,34 +1,7 @@
 import { plantacoes } from "./plantar.js";
-
+import { plantasInfo } from "./info.js";
 const tempoBtn = document.getElementById('tempo');
 export let tempo = 0;
-
-const plantasInfo = {
-  'batata': {
-    tempoCrescimento: 2,
-    fasesImg: [
-      './assets/batata/batata-pequena.png',
-      './assets/batata/batata-media.png',
-      './assets/batata/batata-grande.png'
-    ]
-  },
-  'abobora': {
-    tempoCrescimento: 3,
-    fasesImg: [
-      './assets/abobora/abobora-pequena.png',
-      './assets/abobora/abobora-media.png',
-      './assets/abobora/abobora-grande.png'
-    ]
-  },
-  'tomate': {
-    tempoCrescimento: 4,
-    fasesImg: [
-      './assets/tomate/tomate-pequeno.png',
-      './assets/tomate/tomate-medio.png',
-      './assets/tomate/tomate-grande.png'
-    ]
-  }
-}
 
 tempoBtn.addEventListener('click', () => {
   tempo++;
