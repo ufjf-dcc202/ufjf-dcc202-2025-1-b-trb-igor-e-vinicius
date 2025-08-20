@@ -8,12 +8,17 @@ const sementes = Array.from(document.querySelectorAll('footer > button')).filter
 
 sementes.forEach(button => {
   button.addEventListener('click', () => {
-    sementeSelecionada = button.id;
+    const isSelected = button.classList.contains('selecionada');
     sementes.forEach(d => d.classList.remove('selecionada'));
-    button.classList.add('selecionada');
-    
     regadorSelecionado = false;
     regador.classList.remove('selecionada');
+
+    if (!isSelected) {
+      button.classList.add('selecionada');
+      sementeSelecionada = button.id;
+    } else {
+      sementeSelecionada = null;
+    }
   });
 });
 
