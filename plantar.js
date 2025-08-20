@@ -1,3 +1,5 @@
+import { compraSemente } from "./moeda.js";
+
 let sementeSelecionada = null;
 let regadorSelecionado = null;
 
@@ -40,6 +42,11 @@ export function plantarSemente(areaEl) {
   if (!sementeSelecionada) return;
   if (areaEl.id !== 'terra') return;
 
+  if (!compraSemente(sementeSelecionada)) {
+    alert('Moedas insuficientes!');
+    return;
+  }
+
   let imgPath = '';
   switch (sementeSelecionada) {
     case 'batata':
@@ -73,4 +80,3 @@ export function regarPlanta(areaEl) {
     plantacao.vida = 3;
   }
 }
-
