@@ -54,6 +54,7 @@ export function plantarSemente(areaEl) {
     el: areaEl,
     idade: 0,
     vida: 3,
+    fase: 0,
     tipo: sementeSelecionada,
     viva: true
   });
@@ -66,6 +67,5 @@ export function regarPlanta(areaEl) {
   if (plantacao) {
     plantacao.vida = 3;
   }
-  console.log(plantacao);
 }
 
