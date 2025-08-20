@@ -1,4 +1,4 @@
-import { plantarSemente } from './plantar.js';
+import { plantarSemente, regarPlanta } from './plantar.js';
 
 export function limparCanteiro(e) {
   const areaEl = e.currentTarget;
@@ -10,6 +10,7 @@ export function limparCanteiro(e) {
       areaEl.id = 'terra';
       areaEl.removeEventListener('click', limparCanteiro);
       areaEl.addEventListener('click', () => plantarSemente(areaEl));
+      areaEl.addEventListener('click', () => regarPlanta(areaEl));
       break;
     case 'erva':
       areaEl.style.backgroundImage = "url('./assets/floor/tile_grama.png')";
